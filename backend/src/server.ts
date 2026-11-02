@@ -1,3 +1,4 @@
+
 import { createServer } from 'node:http';
 import { app } from './app.js';
 import { env, isAuthConfigured, isDatabaseConfigured } from './config/env.js';
@@ -5,8 +6,8 @@ import { closeDatabase } from './db/client.js';
 
 const server = createServer(app);
 
-server.listen(env.PORT, () => {
-  console.log(`[server] API listening on http://localhost:${env.PORT}`);
+server.listen(env.PORT, '0.0.0.0', () => {
+  console.log(`[server] API listening on port ${env.PORT}`);
   console.log(`[server] Environment: ${env.NODE_ENV}`);
   console.log(`[server] CORS origin: ${env.FRONTEND_URL}`);
 
